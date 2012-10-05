@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <!-- your login in Mandrill -->
+    <add key="MandrillUser" value="email@example.com" />
+    
+    <!-- Mandril API Key -->
+    <add key="MandrillKey" value="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" />
+
+    <add key="From" value="from@example.com" />
+    <add key="To" value="to1@example.com,to2@example.com"/>
+    
+    <!-- the mandrill template should have something like "text *|var1|* more text *|var2|*" -->
+    <add key="MandrillTemplate" value="test" />
+  </appSettings>
+</configuration>
