@@ -16,7 +16,7 @@ namespace mandrill.smtp.helpers
         public virtual void Add(ExpandoObject item)
         {
             var d = ((IDictionary<string, object>)item).ToDictionary(x => x.Key, x => x.Value.ToString());
-            var values = string.Join(",", d.Select(x => "\"" + x.Key + "\": \"" + x.Value + "\""));
+            var values = string.Join(",", d.Select(x => "\"" + x.Key + "\": \"" + x.Value.Replace("\"", "\\\"") + "\""));
             Collection.Add(Key, "{" + values + "}");
         }
     }
