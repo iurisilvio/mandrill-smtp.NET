@@ -2,6 +2,7 @@
 using System.Collections.Specialized;
 using System.Dynamic;
 using System.Linq;
+using System.Web.Script.Serialization;
 
 namespace mandrill.smtp.helpers
 {
@@ -15,9 +16,8 @@ namespace mandrill.smtp.helpers
 
         public virtual void Add(ExpandoObject item)
         {
-            var d = ((IDictionary<string, object>)item).ToDictionary(x => x.Key, x => x.Value.ToString());
-            var values = string.Join(",", d.Select(x => "\"" + x.Key + "\": \"" + x.Value.Replace("\"", "\\\"") + "\""));
-            Collection.Add(Key, "{" + values + "}");
+            var s = new JavaScriptSerializer();
+            Collection.Add(Key, s.Serialize(item));
         }
     }
 }
